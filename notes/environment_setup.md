@@ -6,16 +6,16 @@ Date: 2026-07-20
 
 - Windows version:
 - WSL distribution:
-- WSL version:
+- WSL version: 2.7.10.0
 - Linux user:
 - Repository path:
 
 ## 2. Tool Versions
 
 ```text
-Python:
-pip:
-Git:
+Python: 3.14.4
+pip: 25.1.1
+Git: 2.53.0
 VS Code:
 WSL extension:
 ```
@@ -23,7 +23,15 @@ WSL extension:
 ## 3. Commands Actually Used
 
 ```bash
-# Only record commands that were actually executed.
+git init
+git status
+git add .
+git diff --cached
+git commit -m ''
+git push
+git log --oneline --decorate --graph -5
+git push -u origin main
+git remote -v
 ```
 
 ## 4. Verification
@@ -51,10 +59,10 @@ git remote -v
 
 ## 6. Security Check
 
-- [ ] No password or verification code is recorded.
-- [ ] No personal access token is recorded.
-- [ ] No SSH private key is committed.
-- [ ] `.venv/` is ignored.
+- [X] No password or verification code is recorded.
+- [X] No personal access token is recorded.
+- [X] No SSH private key is committed.
+- [X] `.venv/` is ignored.
 
 ## 7. Final Status
 
