@@ -1,0 +1,8 @@
+2026-07-22 01:32:59,604 | INFO | starting analysis for /home/lixin/projects/pre-master-foundation/exercises/python/data/experiments.csv
+2026-07-22 01:32:59,606 | WARNING | row 5: accuracy must be numeric, got 'not_a_number'
+2026-07-22 01:32:59,606 | WARNING | row 6: val_loss is empty
+2026-07-22 01:32:59,606 | WARNING | row 7: experiment_name is empty
+2026-07-22 01:32:59,606 | WARNING | row 8: accuracy must be within [0, 1], got 1.12
+2026-07-22 01:32:59,607 | WARNING | row 9: train_loss must be non-negative, got -0.1
+2026-07-22 01:32:59,607 | WARNING | row 10: duplicate experiment_name 'cnn_small'
+2026-07-22 01:32:59,607 | INFO | analysis completed: 3 valid rows, 6 invalid rows
