@@ -57,19 +57,18 @@ def parse_experiment_row(
     row_number: int,
     seen_names: set[str],
 ) -> dict[str, str | float]:
-'''
-定义一个名为 parse_experiment_row 的函数。
-它接收三个参数：
-1. row：
-   一个字典，键是字符串，值是字符串或 None。
-2. row_number：
-   一个整数。
-3. seen_names：
-   一个只包含字符串的集合。
-函数返回：
-一个字典，键是字符串，值是字符串或浮点数。
-'''
-    """Validate one CSV row and return a typed experiment record."""
+    """定义一个名为 parse_experiment_row 的函数。
+
+    它接收三个参数：
+    1. row：
+    一个字典，键是字符串，值是字符串或 None。
+    2. row_number：
+    一个整数。
+    3. seen_names：
+    一个只包含字符串的集合。
+    函数返回：
+    一个字典，键是字符串，值是字符串或浮点数。
+    """
     raw_name = row.get("experiment_name")
     name = raw_name.strip() if raw_name else ""
 
@@ -96,26 +95,29 @@ def load_experiments(
     valid_records: list[dict[str, str | float]] = []
     errors: list[str] = []
     seen_names: set[str] = set()
-'''
-定义函数 load_experiments。
-输入：
-    csv_path
-    类型为 Path，表示 CSV 文件路径。
-输出：
-    一个包含两个元素的元组。
-    第一个元素：
-        有效实验记录列表。
-        每条记录是一个字典。
-        字典键是字符串，值是字符串或浮点数。
-    第二个元素：
-        错误信息列表。
-        每条错误信息是字符串。
+    """
+    定义函数 load_experiments。
+    
+    输入：
+        csv_path
+        类型为 Path，表示 CSV 文件路径。
+    输出：
+        一个包含两个元素的元组。
+        第一个元素：
+            有效实验记录列表。
+            每条记录是一个字典。
+            字典键是字符串，值是字符串或浮点数。
+        第二个元素：
+            错误信息列表。
+            每条错误信息是字符串。
 
-函数开始时创建：
-    一个空的有效记录列表；
-    一个空的错误信息列表；
-    一个空的实验名称集合。
-'''
+    函数开始时创建：
+        一个空的有效记录列表；
+        一个空的错误信息列表；
+        一个空的实验名称集合。
+    """
+
+
     with csv_path.open("r", encoding="utf-8", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
         actual_fields = set(reader.fieldnames or [])

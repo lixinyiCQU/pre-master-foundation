@@ -1,0 +1,10 @@
+
+Experiment Log Summary
+----------------------
+Valid experiments : 3
+Best experiment   : cnn_dropout
+Best accuracy     : 91.00%
+Average accuracy  : 87.33%
+Invalid rows      : 6
+
+See outputs/analyzer.log for details.

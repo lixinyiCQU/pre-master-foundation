@@ -1,0 +1,10 @@
+experiment_name,train_loss,val_loss,accuracy
+mlp_baseline,0.42,0.48,0.82
+cnn_small,0.28,0.35,0.89
+cnn_dropout,0.31,0.33,0.91
+bad_accuracy,0.20,0.25,not_a_number
+missing_val_loss,0.25,,0.87
+,0.30,0.38,0.80
+out_of_range,0.18,0.24,1.12
+negative_loss,-0.10,0.22,0.88
+cnn_small,0.27,0.34,0.90

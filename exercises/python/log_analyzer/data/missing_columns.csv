@@ -1,0 +1,2 @@
+experiment_name,train_loss,val_loss
+mlp_baseline,0.42,0.82
