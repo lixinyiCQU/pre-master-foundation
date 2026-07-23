@@ -9,6 +9,7 @@ from pathlib import Path
 from .analyzer import analyze_experiments
 from .data_loader import load_experiments
 from .report import format_report, write_report
+from .class_demo import ExperimentAnalyzer
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def configure_logging(level_name: str) -> None:
-    """Configure application logging."""
+    """Configure application logging for the command-line entry point."""
     logging.basicConfig(
         level=getattr(logging, level_name),
         format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
@@ -45,7 +46,18 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         experiments, errors = load_experiments(args.input)
-        result = analyze_experiments(experiments)
+
+        # 类对象实例化然后使用实例方法进行分析
+        analyzer = ExperimentAnalyzer(experiments)
+        result = {
+            "valid_count": analyzer.best()["valid_count"],
+            "best_experiment": analyzer.best()["best_experiment"],
+            "best_accuracy": analyzer.best()["best_accuracy"],
+            "average_accuracy": analyzer.average_accuracy(),
+        }
+
+        # 使用函数进行分析
+        record = analyze_experiments(experiments)
         report_text = format_report(result, errors)
         write_report(report_text, output_path)
     except (FileNotFoundError, ValueError, OSError) as exc:
