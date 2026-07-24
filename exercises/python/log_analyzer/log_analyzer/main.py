@@ -49,16 +49,10 @@ def main(argv: list[str] | None = None) -> int:
 
         # 类对象实例化然后使用实例方法进行分析
         analyzer = ExperimentAnalyzer(experiments)
-        result = {
-            "valid_count": analyzer.best()["valid_count"],
-            "best_experiment": analyzer.best()["best_experiment"],
-            "best_accuracy": analyzer.best()["best_accuracy"],
-            "average_accuracy": analyzer.average_accuracy(),
-        }
+        summary = analyzer.summary()
 
-        # 使用函数进行分析
-        record = analyze_experiments(experiments)
-        report_text = format_report(result, errors)
+        # 使用函数进行分析 record = analyze_experiments(experiments)
+        report_text = format_report(summary, errors)
         write_report(report_text, output_path)
     except (FileNotFoundError, ValueError, OSError) as exc:
         logger.error("Analysis failed: %s", exc)
